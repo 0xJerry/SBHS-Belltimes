@@ -1,3 +1,4 @@
+//counter.js v1.7
 var day;
 var todayHours;
 var todayMinutes;
