@@ -1,182 +1,101 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>SBHS Countdown</title>
-<link rel="icon" type="image/png" href="assets/favicon.ico">
-<link rel="apple-touch-icon" href="assets/logo.png"/>
 
+var day;
+var todayHours;
+var todayMinutes;
+var todayDesc;
+var nextDay = false;
 
-<!--Looking at the source code?
- Oh man STEP BACK such a l337 h4x0r!!!1!ONE!
-.. . ...... ...   .....     ... .. . .    .  . ..  .. .  . .........................................
-.. . ........... .....    . ........ ......~MMMMMMMMMM.  ...........................................
-........................................+MMMMMMMMMMMMMMMMM~.........................................
-.. ...................................7MMMMMMMMMMMMMMMMMMMMM  ......................................
-.....................................MMMMMMMMMMMMMMMMMMMMMMMMM......................................
-....................................MMMMMMMMMMMMMMMMMMMMMMMMMMM.....................................
-...................................ZMMMM.,$MMMMMMMMMDMMMMMMMMMMM ...................................
-........ . ........................OM+ .....+  .. .  ...,MMMMMMM ...........................,.......
-........ . ..... .......  ...... .:MM $DMNI . ...,.. .....MMMMMMZ...................................
-..................................:MM....O......D~.I8=....MMMMMMM ..................................
-..................................:MMMMMMM,.....D..7MMNN..MMMMMMMO .................................
-...................................MM..  +............. ..MMMMMMM, .................................
-...................................8M.,I+, ......OM7.......MMMMMM~..................................
-...................................,$.8MN......:.MNMN :. ..MMMMMM ..................................
-........   ....... ................. ... .~.... . .. .. ...MMMMMI ..................................
-.................................... ....D .....,..........MM... ...................................
-.................................... ......... ............M.M+~ ...................................
-....................................:....N. ,.  ........... .M......................................
-....................................M ..IMMM.MMMMM. .........,7 ....................................
-...................$~I .............+..MMMZ...,7MMMM. ......=M......................................
-..............?+......   ..............MMMZ.I...$~MM........M  .....................................
-.............D .M.: .. 7~ ........... .~,=. ...M.... ........ ......................................
-.............M .N.M .M.7 .................,I.  ...... . $ .M......................$ .+..............
-.........:...M  O....I ...  .........8.I ...........,..  .,8.........................O...M .........
-..........N,.O..$: . M ... ........ M.I...........Z ......~O.D ...............MM..MD Z .,.D ........
-........Z 7. +..Z+ ..M7 ,........?7...8$. ,?:,IO$.......N .MM .8,.  .........O .N.8...,.7.=.........
-........  ..:N...N...M ..NDM .... ......=.............O....88.....D,DM.......= ....   M Z ......  ..
-.........D ..N. ...  : Z :......., ....,...,Z,:=,7M .......$N ......M. .. D7  ~ ...M. , N:.~...N.M..
-......... : ..  ........ ? .....M  ....M......~MMM........O D.........7..... .M :.M~...?7..N ....M..
-........ ZZ8.... ....7...8....8 .,.....I+....MMMMMM ......D:I.......~~.........: ..N:O.M$.:O .D..$ .
-....... ,...N.....=Z.....O...N... ...... + ..MOMMMM .....~..Z ........O........M ,.7  .....:=~ .Z ..
-...... D....+ .....:.. ..= .I =I : .....~.+ NMMMMM,,...?,...N........,NN............~ .........Z,...
-......N ...... .....$. ...N =.. .8 .....I.~..ZMMM..I  $ M ..N........Z...$.....$... .O..$O,.. M.....
-.....M ......M........O ..... ...D......N .MMMM+,.MZ...$. ..M........, ....8...Z .D?8...:....O .....
-..... ......., ..................O .....M .:MMN$~MMM...8 ...N.......:.:.....? Z....... ......N .....
-....I........, ................Z D......M ..MM .MMMMM.I~....= .............. ...$..?.........Z......
-....= ......... .............. $.Z......M ...M=.MMNMM., .... ..... N.....,........, ........,$ .....
-...= ....... 7Z........ + ....I.........D....$MMMM.8MZ+ ..........8 .....I .................Z.8.....
-...M .......N7.......=. .,..I ..........O ....MMMMMMMM...... ...., .......,, ..............N..N.....
-...N .......$..8  ........ D ...........$ ....+MMMMM ......+.....$..........~..............O, 7.....
-... .........Z....$.......M.......: ....  .....M.M.. ......=.....?...........?,.........8  .$ ......
-..+...........=..... 8? .D7.......Z ....+.......MM$.......O:..... ..............~..........8~I $ ...
-...............7 .......7.?.......Z...... ......:M. ......, ....= ..............O8 ......=ND,...$...
-.= .............:  ..O. O8 .......7 .... ......... ........M .... ...............+  .,...?+ Z...= ..
-+.................. . M IZ ............. ...... ~ .........8.....................I=O$:. .,.D....,...
-Z.................= . .8,. ....................N8........,$8 ......................... .~:., ....M .
-D..................? .8 ... ...................?:.D .....N ...............................N .....N .
-................... ... .. ............  .....  .  ..... ................................ ......  .
+setInterval(function doCount(){
+    var t1Hours = [9,9,10,11,11,11,12,13,14,15];
+    var t1Minutes = [0,5,5,10,30,50,50,55,15,15];
+    var t1Desc = ["School Starts","Period 1","Period 2","Lunch","Lunch 2","Period 3","Period 4","Recess","Period 5","End of Day"];
 
- Please rant about my bad coding practices and poor
- logic or give constructive suggestions by clicking
- on "Give Feedback" at the bottom of the page-->
+    var t2Hours = [9,9,10,11,11,12,12,13,14,15];
+    var t2Minutes = [0,5,5,10,30,30,50,10,10,15];
+    var t2Desc = ["School Starts","Period 1","Period 2","Recess","Period 3","Lunch","Lunch 2","Period 4","Period 5","End of Day"];
 
+    var t3Hours = [9,9,10,11,11,12,13,14,14,15];
+    var t3Minutes = [25,30,25,25,45,5,0,0,20,15];
+    var t3Desc = ["School Starts","Period 1","Period 2","Lunch","Lunch 2","Period 3","Period 4","Recess","Period 5","Weekends"];
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<link href='http://fonts.googleapis.com/css?family=Roboto:100,300' rel='stylesheet' type='text/css'>
-<style type="text/css">
-    .centered {
-        text-align: center;
-        position: absolute;
-        left: 0px;
-        width: 100%;
-        top: 5%;
-        overflow: visible;
-        display: block;
-        /*top: 50%;
-        left: 50%;
-        height: 300px;
-        width: 700px;
-        margin-top: -200px;
-        margin-left: -400px;*/
+    var now = new Date();
+    day = now.getDay();
+    var nowHours = now.getHours();
+    var nowMinutes = now.getMinutes();
+    var nowSeconds = now.getSeconds();
+
+    //weekday overnight correction
+    if ((nowHours*60 + nowMinutes)>=915 && day!=6){
+        day += 1;
+        nextDay = true;
     }
-    .align {
-        text-align: center;
-        position: absolute;
-        left: 0px;
-        width: 100%;
-        overflow: visible;
-        display: block;
-    }
-    #description {
-        font-family: 'Roboto', sans-serif;
-        font-weight: 300;
-        font-size: 50px;
-        color: #D6D6D6;
-        height: 80px;
-        line-height:50px;
-        padding-top:5px;
-    	padding-bottom:0px;
-    }
-    #in {
-        font-family: 'Roboto', sans-serif;
-        font-style: normal;
-        font-weight: 100;
-        font-size: 25px;
-        color: #D6D6D6;
-        line-height:0px;
-		padding-top:0px;
-        padding-bottom:10px;
 
+    //grab timetables
+    switch (day){
+        case 3: //wed
+        case 4:
+            todayHours = t2Hours.slice(0);
+            todayMinutes = t2Minutes.slice(0);
+            todayDesc = t2Desc.slice(0);
+            break;
+        case 5: //fri
+            todayHours = t3Hours.slice(0);
+            todayMinutes = t3Minutes.slice(0);
+            todayDesc = t3Desc.slice(0);
+            break;
+        default:
+            todayHours = t1Hours.slice(0);
+            todayMinutes = t1Minutes.slice(0);
+            todayDesc = t1Desc.slice(0);
+            break;
     }
-    #counter {
-        font-family: 'Roboto', sans-serif;
-        font-size: 120px;
-        font-weight: 100;
-        color: #D6D6D6;
-        line-height: 1.1em;
-    }
-    #debug {
-        font-family: "Roboto", sans-serif;
-        font-weight: 100;
-        font-size: 25px;
-        color: #D6D6D6;
-    }
-    #faq{
-        position: fixed;
-        bottom: 7px;
-        left: 10px;
-        font-family: "Roboto", sans-serif;
-        text-align: left;
-        font-weight: 100;
-        font-size: 18px;
-        color: #d7d7d7;
-        z-index: 10;
-    }
-    #bottom {
-        position: fixed;
-        bottom: 7px;
-        font-family: "Roboto", sans-serif;
-        text-align: center;
-        font-weight: 100;
-        font-size: 18px;
-    }
-    #copyright{
-        position: fixed;
-        bottom: 10px;
-        right: 10px;
-        font-family: "Roboto", sans-serif;
-        text-align: right;
-        font-weight: 100;
-        font-size: 13px;
-        color: #d7d7d7;
+    var i = 0;
 
+    if (nextDay==true){
+        todayHours[i] += 24;
     }
-</style>
 
-<script type="text/javascript"language="javascript"src="counter.js"></script>
+    //weekend correction
+    if (day==6){
+        todayHours[i] += 48;
+    }else if (day==0){
+        todayHours[i] += 24
+    }
 
-<script>
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    //next period
+    var nowAbsolute = nowHours*60 + nowMinutes;
+    while ((todayHours[i]*60 + todayMinutes[i] - 1) < nowAbsolute && nowAbsolute < 915){i++}
+    if (i==10){i=0}
 
-    ga('create', 'UA-40772969-1', 'sydneyboyshigh.asia');
-    ga('send', 'pageview');
-</script>
-</head>
-<body bgcolor="#000000">
-<div id="container" class="centered" >
-    <div id="description"></div>
-    <div id="in">in</div>
-    <div id="counter"></div>
-</div>
-<!--<div id="debug"></div>-->
-<div id="faq"><a href="faq.html" style="color: #00aced"><img src="assets/i.png" height=15px hspace=3px>FAQ</a></div>
-<div id="bottom" class="align"><a href="https://docs.google.com/forms/d/1J-FFPzJkBjCOY4U73xIIe_UwwMqMevmX6T9FZKLmQA0/viewform" target="_blank" style="color: #00aced">Give Feedback</a></div>
-<div id="copyright">&#169 Jerry Yip 2013</div>
-<br><br>
 
-</body>
-</html>
+    //put last
+    var rHours = (todayHours[i]-nowHours);
+    var rMinutes = (todayMinutes[i]-nowMinutes-1);
+    var rSeconds = (60-nowSeconds);
+    if (rSeconds == 60){
+        rMinutes += 1;
+        rSeconds = 0;
+    }
+
+    //negative correction
+    if (todayMinutes[i]-1 < nowMinutes){
+        rHours -= 1;
+        rMinutes += 60;
+    }
+
+    //display
+    document.getElementById("description").innerHTML= todayDesc[i];
+    if (rHours!=0){
+        document.getElementById("counter").innerHTML= "<b>"+rHours+"</b>h, <b>"+ zeroPad(rMinutes) +"</b>m, <b>"+zeroPad(rSeconds)+"</b>s.";
+    }
+    else{
+        document.getElementById("counter").innerHTML= "<b>"+zeroPad(rMinutes)+"</b>m, <b>"+zeroPad(rSeconds)+"</b>s.";
+    }
+    document.getElementById("debug").innerHTML= "Debug: Now="+nowHours+":"+nowMinutes+", Target="+todayHours[i]+":"+todayMinutes[i];
+
+}, 500);
+
+function zeroPad(num) {
+    var s = "000" + num;
+    return s.substr(s.length-2);
+}
