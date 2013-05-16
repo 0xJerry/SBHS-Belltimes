@@ -1,4 +1,4 @@
-//counter.js v1.7
+//counter.js v1.7 - debug
 var day;
 var todayHours;
 var todayMinutes;
@@ -91,7 +91,7 @@ setInterval(function doCount(){
     else{
         document.getElementById("counter").innerHTML= "<b>"+zeroPad(rMinutes)+"</b>m, <b>"+zeroPad(rSeconds)+"</b>s.";
     }
-    //document.getElementById("debug").innerHTML= "Debug: Now="+nowHours+":"+nowMinutes+", Target="+todayHours[i]+":"+todayMinutes[i];
+    document.getElementById("debug").innerHTML= "Debug: Now="+nowHours+":"+nowMinutes+":"+nowSeconds+", Target="+todayHours[i]+":"+todayMinutes[i];
 
 }, 500);
 
