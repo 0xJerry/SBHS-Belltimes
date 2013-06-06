@@ -2,17 +2,20 @@
 <html manifest="cache.manifest" prefix="og: http://ogp.me/ns#">
 <head>
     <title>Belltimes</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Belltimes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="description" content="The place to go when you're having that teacher you woe. The fastest countdown to the bell for SBHS." />
+    <meta name="keywords" content="sbhs, bell, times, belltimes, countdown, sydney, boys, high, school, sydneyboys, sydneyboyshigh, sydneyboyshighschool">
     <meta property="fb:admins" content="100001342239314" />
     <meta property="fb:app_id" content="266559516821504" />
     <meta property="og:title" content="SBHS Belltimes" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="http://www.sydneyboyshigh.asia" />
     <meta property="og:image" content="http://www.sydneyboyshigh.asia/assets/logo_big.jpg" />
-    <meta property="og:description" content="The fastest way to get a morning detention.">
+    <meta property="og:description" content="The place to go when you're having that teacher you woe. The fastest countdown to the bell for SBHS.">
 
     <!--Looking at the source code?
      Oh man STEP BACK such a l337 h4x0r!!!1!ONE!
@@ -69,7 +72,7 @@
      logic or give constructive suggestions by clicking
      on "Give Feedback" at the bottom of the page-->
 
-
+    <link href='http://fonts.googleapis.com/css?family=Roboto:100,300' rel='stylesheet' type='text/css'>
     <link rel="icon" type="image/png" href="assets/favicon.ico">
     <link rel="apple-touch-icon" href="assets/logo.png"/>
 
@@ -82,6 +85,7 @@
     <!-- iPhone 5 640x1096 I'm not doing this for iPads-->
     <link href="assets/clean_splash_i5.jpg"
           media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
+
     <!-- iPad Portrait 768x1004 FINE-->
     <link href="assets/splash_p1_p.jpg"
           media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
@@ -98,7 +102,7 @@
     <link rel="stylesheet" href="iOS/add2home.css">
     <script type="text/javascript" src="iOS/add2home.js?v=3" charset="utf-8"></script>
 
-    <link href='http://fonts.googleapis.com/css?family=Roboto:100,300' rel='stylesheet' type='text/css'>
+
     <style type="text/css">
         .centered {
             text-align: center;
@@ -186,21 +190,11 @@
         }
     </style>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
-    <script type="text/javascript"language="javascript"src="counter.js"></script>
-    <!--<script>
-        // this code only runs for first visit
-        /*function rC(nam) {var tC = document.cookie.split('; '); for (var i = tC.length - 1; i >= 0; i--) {var x = tC[i].split('='); if (nam == x[0]) return unescape(x[1]);} return '~';} function wC(nam,val) {document.cookie = nam + '=' + escape(val);} function lC(nam,pg) {var val = rC(nam); if (val.indexOf('~'+pg+'~') != -1) return false; val += pg + '~'; wC(nam,val); return true;} function firstTime(cN) {return lC('pWrD4jBo',cN);} function thisPage() {var page = location.href.substring(location.href.lastIndexOf('\/')+1); pos = page.indexOf('.');if (pos > -1) {page = page.substr(0,pos);} return page;}
-        function start() {
-            if (firstTime(thisPage())) {
-                alert('GOOD NEWS\n1.This site is now unblocked on school internet!\n2.Download the new Android App update now! - see FAQ');
-            }
-        }
-        onload = start;*/
-        /*alert();*/
-    </script>-->
+    <script type="text/javascript" src="counter.js"></script>
+
     <script type="text/javascript">
         if( /Android/i.test(navigator.userAgent) ) {
-            var url=confirm("For faster access with 1-Click: Download Android App now? (UPDATED 30TH MAY)");
+            var url=confirm("For faster access with 1-Click: Download Android App now? (UPDATED 4rd June, 1.4MB)");
             if (url==true)
             {
                 var url = window.location.href = "android.html";
@@ -210,6 +204,11 @@
             {
 
             }
+        }
+    </script>
+    <script>
+        if (window.screen.height==568) { // iPhone 4
+            document.querySelector("meta[name=viewport]").content="width=320.1";
         }
     </script>
     <script>
@@ -224,6 +223,25 @@
     </script>
 </head>
 <body bgcolor="#000000">
+
+<?php
+$lifetime = 31536000; // one year
+setcookie($varName,$varValue,time()+$lifetime);
+setcookie(session_name(),session_id(),time()+$lifetime);
+?>
+<!--<script> //cookie alert
+function rC(nam) {var tC = document.cookie.split('; '); for (var i = tC.length - 1; i >= 0; i--) {var x = tC[i].split('='); if (nam == x[0]) return unescape(x[1]);} return '~';} function wC(nam,val) {document.cookie = nam + '=' + escape(val);} function lC(nam,pg) {var val = rC(nam); if (val.indexOf('~'+pg+'~') != -1) return false; val += pg + '~'; wC(nam,val); return true;} function firstTime(cN) {return lC('pWrD4jBo',cN);} function thisPage() {var page = location.href.substring(location.href.lastIndexOf('\/')+1); pos = page.indexOf('.');if (pos > -1) {page = page.substr(0,pos);} return page;}
+// example code to call it - you may modify this as required
+function start() {
+    if (firstTime(thisPage())) {
+        // this code only runs for first visit
+        alert('GOOD NEWS\nThis site is now unblocked on school internet!');
+    }
+    // other code to run every time once page is loaded goes here
+}
+onload = start;
+</script>-->
+
 <div id="week"></div>
 <div id="container" class="centered" >
     <div id="description"></div>
