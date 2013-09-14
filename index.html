@@ -1,80 +1,77 @@
-<!DOCTYPE html><!--M4 Release-->
-<html manifest="cache.manifest" prefix="og: http://ogp.me/ns#">
-<head>
+<!DOCTYPE html><!--3.0 Release-->
+<html manifest="cache.manifest">
+<head prefix="og: http://ogp.me/ns#">
     <title>Belltimes</title>
+    <base href="/" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-title" content="Belltimes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="description" content="The place to go when you're having that teacher you woe. The fastest countdown to the bell for SBHS." />
-    <meta name="keywords" content="sbhs, bell, times, belltimes, countdown, sydney, boys, high, school, sydneyboys, sydneyboyshigh, sydneyboyshighschool">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="The new home of SBHS Belltimes - The fastest countdown to the bell for Sydney Boys High. The place to go when you're having that teacher you woe. Formerly sydneyboyshigh.asia" />
+    <meta name="keywords" content="sbhs, bell, time, times, belltimes, sbhsbelltimes, sydneyboyshigh.asia, sydneyboyshigh.tk, sbhsbelltimes.tk, sbhsbelltimes.asia, asia, tk, countdown, sydney, boys, high, school, sydneyboys, sydneyboyshigh, sydneyboyshighschool, belltime">
+    <meta name="author" content="Jerry Yip">
     <meta property="fb:admins" content="100001342239314" />
     <meta property="fb:app_id" content="266559516821504" />
     <meta property="og:title" content="SBHS Belltimes" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://www.sydneyboyshigh.asia" />
-    <meta property="og:image" content="http://www.sydneyboyshigh.asia/assets/logo_big.jpg" />
-    <meta property="og:description" content="The place to go when you're having that teacher you woe. The fastest countdown to the bell for SBHS.">
+    <meta property="og:url" content="http://www.sbhsbelltimes.tk" />
+    <meta property="og:image" content="http://www.sbhsbelltimes.tk/assets/logo_big.jpg" />
+    <meta property="og:description" content="The new home of SBHS Belltimes - The fastest countdown to the bell for Sydney Boys High. The place to go when you're having that teacher you woe. ">
 
-    <!--Looking at the source code?
-     Oh man STEP BACK such a l337 h4x0r!!!1!ONE!
-    .. . ...... ...   .....     ... .. . .    .  . ..  .. .  . .........................................
-    .. . ........... .....    . ........ ......~MMMMMMMMMM.  ...........................................
-    ........................................+MMMMMMMMMMMMMMMMM~.........................................
-    .. ...................................7MMMMMMMMMMMMMMMMMMMMM  ......................................
-    .....................................MMMMMMMMMMMMMMMMMMMMMMMMM......................................
-    ....................................MMMMMMMMMMMMMMMMMMMMMMMMMMM.....................................
-    ...................................ZMMMM.,$MMMMMMMMMDMMMMMMMMMMM ...................................
-    ........ . ........................OM+ .....+  .. .  ...,MMMMMMM ...........................,.......
-    ........ . ..... .......  ...... .:MM $DMNI . ...,.. .....MMMMMMZ...................................
-    ..................................:MM....O......D~.I8=....MMMMMMM ..................................
-    ..................................:MMMMMMM,.....D..7MMNN..MMMMMMMO .................................
-    ...................................MM..  +............. ..MMMMMMM, .................................
-    ...................................8M.,I+, ......OM7.......MMMMMM~..................................
-    ...................................,$.8MN......:.MNMN :. ..MMMMMM ..................................
-    ........   ....... ................. ... .~.... . .. .. ...MMMMMI ..................................
-    .................................... ....D .....,..........MM... ...................................
-    .................................... ......... ............M.M+~ ...................................
-    ....................................:....N. ,.  ........... .M......................................
-    ....................................M ..IMMM.MMMMM. .........,7 ....................................
-    ...................$~I .............+..MMMZ...,7MMMM. ......=M......................................
-    ..............?+......   ..............MMMZ.I...$~MM........M  .....................................
-    .............D .M.: .. 7~ ........... .~,=. ...M.... ........ ......................................
-    .............M .N.M .M.7 .................,I.  ...... . $ .M......................$ .+..............
-    .........:...M  O....I ...  .........8.I ...........,..  .,8.........................O...M .........
-    ..........N,.O..$: . M ... ........ M.I...........Z ......~O.D ...............MM..MD Z .,.D ........
-    ........Z 7. +..Z+ ..M7 ,........?7...8$. ,?:,IO$.......N .MM .8,.  .........O .N.8...,.7.=.........
-    ........  ..:N...N...M ..NDM .... ......=.............O....88.....D,DM.......= ....   M Z ......  ..
-    .........D ..N. ...  : Z :......., ....,...,Z,:=,7M .......$N ......M. .. D7  ~ ...M. , N:.~...N.M..
-    ......... : ..  ........ ? .....M  ....M......~MMM........O D.........7..... .M :.M~...?7..N ....M..
-    ........ ZZ8.... ....7...8....8 .,.....I+....MMMMMM ......D:I.......~~.........: ..N:O.M$.:O .D..$ .
-    ....... ,...N.....=Z.....O...N... ...... + ..MOMMMM .....~..Z ........O........M ,.7  .....:=~ .Z ..
-    ...... D....+ .....:.. ..= .I =I : .....~.+ NMMMMM,,...?,...N........,NN............~ .........Z,...
-    ......N ...... .....$. ...N =.. .8 .....I.~..ZMMM..I  $ M ..N........Z...$.....$... .O..$O,.. M.....
-    .....M ......M........O ..... ...D......N .MMMM+,.MZ...$. ..M........, ....8...Z .D?8...:....O .....
-    ..... ......., ..................O .....M .:MMN$~MMM...8 ...N.......:.:.....? Z....... ......N .....
-    ....I........, ................Z D......M ..MM .MMMMM.I~....= .............. ...$..?.........Z......
-    ....= ......... .............. $.Z......M ...M=.MMNMM., .... ..... N.....,........, ........,$ .....
-    ...= ....... 7Z........ + ....I.........D....$MMMM.8MZ+ ..........8 .....I .................Z.8.....
-    ...M .......N7.......=. .,..I ..........O ....MMMMMMMM...... ...., .......,, ..............N..N.....
-    ...N .......$..8  ........ D ...........$ ....+MMMMM ......+.....$..........~..............O, 7.....
-    ... .........Z....$.......M.......: ....  .....M.M.. ......=.....?...........?,.........8  .$ ......
-    ..+...........=..... 8? .D7.......Z ....+.......MM$.......O:..... ..............~..........8~I $ ...
-    ...............7 .......7.?.......Z...... ......:M. ......, ....= ..............O8 ......=ND,...$...
-    .= .............:  ..O. O8 .......7 .... ......... ........M .... ...............+  .,...?+ Z...= ..
-    +.................. . M IZ ............. ...... ~ .........8.....................I=O$:. .,.D....,...
-    Z.................= . .8,. ....................N8........,$8 ......................... .~:., ....M .
-    D..................? .8 ... ...................?:.D .....N ...............................N .....N .
-    ................... ... .. ............  .....  .  ..... ................................ ......  .
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Belltimes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-     Please rant about my bad coding practices and poor
-     logic or give constructive suggestions by clicking
-     on "Give Feedback" at the bottom of the page-->
+    <script>window.location.replace("http://sbhsbelltimes.tk/muckup.html")</script>
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:100,300' rel='stylesheet' type='text/css'>
-    <link rel="icon" type="image/png" href="assets/favicon.ico">
+    <link rel="shortcut icon" href="assets/favicon.ico"/>
     <link rel="apple-touch-icon" href="assets/logo.png"/>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <!--Looking at the source code?
+     Oh man STEP BACK such a BADA55 l337 h4x0r!!!1!ONE!
+                            .
+                                8MMMMMMMMMMM
+                              MMMMMMMMMMMMMMMMM
+                             MMMMMMMMMMMMMMMMMMM
+                           .MMMMMMMMMMMMMMMMMMMMM
+                           OMM    M ,,.....,MMMMMM
+                          .MN.O7O.    8.:    MMMMM
+                          .MM.. 7   .MZ7MN   MMMMMM
+                          .MMM$M        .  N MMMMMM
+                           MM . .      ..    .MMMMM
+                             MMN8.  .:M?,M   .MMMM
+                            . .          .    MMDM.
+                            .        8       .M.7~
+                            .    ~=,,O        MM7:
+                            N ..MM=MM8..       IO
+              = Z.          8 MM~... .MMM     .M.
+          N N M   .          .MN  .  = M.   . .
+          =  .= M.              .MM,:    .    ?                 N.
+     . Z .N  .  ..          .          .I    ?M.                  + .N
+        7.,  7.,MN  .     .Z I. Z.   .M     ? M :           D.. + ~ M 8
+      ..= , .$     D .MO,$    .:         .:. .:.  MM,  .    I  .D  ,I .
+       .  M  + .I  ..   =8.   N .8      =    :8     .   ,N.  . D.D.N      N..
+       .  ..       N    .:    ,    7,MM     .N .      ?      .: I   O ..   .
+      $  Z  O7  I  O   .  .    8  .MM M8    ,.,              ~  .O,.O... + M
+     ..  +    = .. .  :. ..   ..$ ZMMMMM   ON         D         ..     .  7.
+    ..         = =..M..  $    .: ..MMM,. .:.             +   .    Z .Z.  M.
+   ..     N      O   .. ..     O :MMM .D   M  .      MM D.M   . M:.     ..
+   7      Z             ?.     N  MM .MMM .   .     . .Z   .,   .       I
+  .       .             :.     M   M MMMM ..  7.    N   O       ?       7.
+  .      .Z.           N ..    N   MMMM.MM    ?     .    +     .       ..N
+  N      D$   . .  8. ,  ..    I   .MMMMMM    M   .:      D            , 8
+ .=      ,. =       M     I   .     D MM      M            .        .= M.
+ D             .D. .      N   ..    .MDM     M:   7           .        ~8 N
+ ~         .      ..Z     .           M      ,.   +           =N     ,M,: .
+.           .   N  $      .          ..      .,                .  .  Z ?. .M
+Z             . .MN                 ...                        I    :: .   Z
+                 $  ,               ZM M    M                   $     =
+                 .
+     Please rant about my code or give constructive
+     suggestions by clicking on "Give Feedback"-->
+
 
     <!-- I hate iPhones 320x460-->
     <link href="assets/clean_splash_i3.jpg"
@@ -92,165 +89,57 @@
     <!-- iPad Landscape 1024x748-->
     <link href="assets/splash_p1_l.jpg"
           media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 1)" rel="apple-touch-startup-image">
-    <!-- iPad Portrait (Retina) 1536x2008 bring me SUSTENANCE-->
+    <!-- iPad Portrait (Retina) 1536x2008-->
     <link href="assets/splash_p2_p.jpg"
           media="(device-width: 768px) and (device-height: 1024px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
-    <!-- iPad Landscape (Retina) 2048x1496 IM DYING-->
+    <!-- iPad Landscape (Retina) 2048x1496 im dying-->
     <link href="assets/splash_p2_l.jpg"
           media="(device-width: 768px) and (device-height: 1024px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" rel="apple-touch-startup-image">
 
-    <link rel="stylesheet" href="iOS/add2home.css">
-    <script type="text/javascript" src="iOS/add2home.js?v=3" charset="utf-8"></script>
 
+    <link rel="stylesheet" href="scripts/iOS/add2home.css">
+    <script type="text/javascript" src="scripts/iOS/add2home.js?v=4" charset="utf-8"></script>
 
-    <style type="text/css">
-        .centered {
-            text-align: center;
-            position: absolute;
-            left: 0px;
-            width: 100%;
-            top: 5%;
-            overflow: visible;
-            display: block;
-        }
-        .align {
-            text-align: center;
-            position: absolute;
-            left: 0px;
-            width: 100%;
-            overflow: visible;
-            display: block;
-        }
-        #week {
-            font-family: "Roboto", sans-serif;
-            text-align: center;
-            font-weight: 100;
-            font-size: 14px;
-            color: #D6D6D6;
-            top: 7px;
-            left: 10px;
-        }
-        #description {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 300;
-            font-size: 50px;
-            color: #D6D6D6;
-            height: 80px;
-            line-height:50px;
-            padding-top:5px;
-            padding-bottom:0px;
-        }
-        #in {
-            font-family: 'Roboto', sans-serif;
-            font-style: normal;
-            font-weight: 100;
-            font-size: 22px;
-            color: #D6D6D6;
-            line-height:0px;
-            padding-top:0px;
-            padding-bottom:10px;
+    <link rel="stylesheet" href="scripts/responsive.css">
+    <link rel="stylesheet" href="scripts/animate-custom.css">
+    <link rel="stylesheet" href="scripts/alerts.css">
 
-        }
-        #counter {
-            font-family: 'Roboto', sans-serif;
-            font-size: 110px;
-            font-weight: 100;
-            color: #D6D6D6;
-            line-height: 1.1em;
-        }
-        #faq{
-            position: fixed;
-            bottom: 7px;
-            left: 10px;
-            font-family: "Roboto", sans-serif;
-            text-align: left;
-            font-weight: 100;
-            font-size: 18px;
-            color: #d7d7d7;
-            z-index: 10;
-        }
-        #bottom {
-            position: fixed;
-            bottom: 7px;
-            font-family: "Roboto", sans-serif;
-            text-align: center;
-            font-weight: 100;
-            font-size: 15px;
-        }
-        #copyright{
-            position: fixed;
-            bottom: 10px;
-            right: 10px;
-            font-family: "Roboto", sans-serif;
-            text-align: right;
-            font-weight: 100;
-            font-size: 12px;
-            color: #d7d7d7;
+    <script type="text/javascript" src="scripts/counter.js?v=3.2"></script>
 
-        }
-    </style>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
-    <script type="text/javascript" src="counter.js"></script>
-
+    <!--Mobile Stuff--->
     <script type="text/javascript">
         if( /Android/i.test(navigator.userAgent) ) {
-            var url=confirm("For faster access with 1-Click: Download Android App now? (UPDATED 4th June, 1.4MB)");
+            var url=confirm("For faster access with 1-Click: Download Android App now? (UPDATED 22nd July, 1.5MB)");
             if (url==true)
             {
                 var url = window.location.href = "android.html";
                 url.show();
-            }
-            else
-            {
-
-            }
-        }
+            }else{}}
+        if (window.screen.height==568) { // iPhone 5
+            document.querySelector("meta[name=viewport]").content="width=320.1";}
     </script>
     <script>
-        if (window.screen.height==568) { // iPhone 4
-            document.querySelector("meta[name=viewport]").content="width=320.1";
-        }
-    </script>
-    <script>
-        /*GA Tracking*/
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-        ga('create', 'UA-40772969-1', 'sydneyboyshigh.asia');
-        ga('send', 'pageview');
+        setTimeout(function() {
+            $('#banner').fadeOut('fast');
+        }, 5000);
     </script>
 </head>
-<body bgcolor="#000000">
+<body style="background-color: #000000; overflow: hidden;">
+<noscript><div style="position: fixed; top: 0px; left: 0px; z-index: 3000;height: 100%; width: 100%; background-color: #000000">
+    <p style="margin-left: 10px; font-size: 35px; color:#ffffff">To access SBHS Belltimes, JavaScript must be enabled in your browser. Upgrade to a modern browser - Google Chrome is recommended.</p>
+</div></noscript>
 
-<?php
-$lifetime = 31536000; // one year
-setcookie($varName,$varValue,time()+$lifetime);
-setcookie(session_name(),session_id(),time()+$lifetime);
-?>
-<!--<script> //cookie alert
-function rC(nam) {var tC = document.cookie.split('; '); for (var i = tC.length - 1; i >= 0; i--) {var x = tC[i].split('='); if (nam == x[0]) return unescape(x[1]);} return '~';} function wC(nam,val) {document.cookie = nam + '=' + escape(val);} function lC(nam,pg) {var val = rC(nam); if (val.indexOf('~'+pg+'~') != -1) return false; val += pg + '~'; wC(nam,val); return true;} function firstTime(cN) {return lC('pWrD4jBo',cN);} function thisPage() {var page = location.href.substring(location.href.lastIndexOf('\/')+1); pos = page.indexOf('.');if (pos > -1) {page = page.substr(0,pos);} return page;}
-// example code to call it - you may modify this as required
-function start() {
-    if (firstTime(thisPage())) {
-        // this code only runs for first visit
-        alert('GOOD NEWS\nThis site is now unblocked on school internet!');
-    }
-    // other code to run every time once page is loaded goes here
-}
-onload = start;
-</script>-->
 
-<div id="week"></div>
+<div id="week" class="animated flipInX"><i><span style="color:#969696">Loading real-time data...</span></i></div>
 <div id="container" class="centered" >
     <div id="description"></div>
-    <div id="in">in</div>
+    <div id="in" class="animated bounceIn waitSmall">in</div>
     <div id="counter"></div>
 </div>
-<div id="faq"><a href="faq.html" style="color: #00aced"><img src="assets/i.png" height=15px hspace=3px>FAQ</a></div>
-<div id="bottom" class="align"><a href="https://docs.google.com/forms/d/1J-FFPzJkBjCOY4U73xIIe_UwwMqMevmX6T9FZKLmQA0/viewform" target="_blank" style="color: #00aced">Give Feedback</a></div>
-<div id="copyright">&#169 Jerry Yip 2013</div>
+
+<div id="faq" style="cursor: pointer;" onclick="window.location='faq.html';"><a href="faq.html" style="color: #00aced"><img src="assets/i.png" id="icon">FAQ</a></div>
+<div id="bottom" class="align animated fadeInUpBig waitBig"><a href="https://docs.google.com/forms/d/1J-FFPzJkBjCOY4U73xIIe_UwwMqMevmX6T9FZKLmQA0/viewform" target="_blank" style="color: #00aced">Give Feedback</a></div>
+<div id="copyright" class="animated fadeInUpBig waitBig">&#169 Jerry Yip 2013</div>
 <br><br>
 
 </body>
