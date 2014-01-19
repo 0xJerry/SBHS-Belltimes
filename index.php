@@ -1,5 +1,5 @@
-<!DOCTYPE html><!--3.0 Release-->
-<html manifest="cache.manifest">
+<!DOCTYPE html><!--4.0 Release-->
+<html> <!--manifest="cache.manifest"-->
 <head prefix="og: http://ogp.me/ns#">
     <title>Belltimes</title>
     <base href="/" />
@@ -20,8 +20,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-title" content="Belltimes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-    <script>window.location.replace("http://sbhsbelltimes.tk/muckup.html")</script>
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:100,300' rel='stylesheet' type='text/css'>
     <link rel="shortcut icon" href="assets/favicon.ico"/>
@@ -104,7 +102,21 @@ Z             . .MN                 ...                        I    :: .   Z
     <link rel="stylesheet" href="scripts/animate-custom.css">
     <link rel="stylesheet" href="scripts/alerts.css">
 
-    <script type="text/javascript" src="scripts/counter.js?v=3.2"></script>
+    <script>
+        var BelltimesID=<?php echo json_encode($_GET['id']) ?>;
+    </script>
+    <script type="text/javascript" src="scripts/counter.js?v=4.0b"></script>
+    <script>
+        $(document).ready(function(){
+            //use belltimes id pls
+            if (BelltimesID==null){
+                $('#idNag').fadeIn(400).delay(10000).fadeOut(400);
+            }
+            else if (BelltimesID==""){
+                $('#idError').fadeIn(400).delay(20000).fadeOut(400);
+            }
+        })
+    </script>
 
     <!--Mobile Stuff--->
     <script type="text/javascript">
@@ -118,17 +130,35 @@ Z             . .MN                 ...                        I    :: .   Z
         if (window.screen.height==568) { // iPhone 5
             document.querySelector("meta[name=viewport]").content="width=320.1";}
     </script>
-    <script>
+    <!--<script>
         setTimeout(function() {
             $('#banner').fadeOut('fast');
-        }, 5000);
-    </script>
+        }, 6000);
+    </script>-->
+
 </head>
 <body style="background-color: #000000; overflow: hidden;">
 <noscript><div style="position: fixed; top: 0px; left: 0px; z-index: 3000;height: 100%; width: 100%; background-color: #000000">
     <p style="margin-left: 10px; font-size: 35px; color:#ffffff">To access SBHS Belltimes, JavaScript must be enabled in your browser. Upgrade to a modern browser - Google Chrome is recommended.</p>
 </div></noscript>
-
+<!--warning/error/success/info-->
+<div style="float:right;cursor:pointer;position:absolute;z-index:999;top:2px;right:5px" class="animated fadeInRightBig wait1" title="Edit Belltimes ID" onclick="window.location='http://sbhsbelltimes.tk/id/">
+    <a href="http://sbhsbelltimes.tk/id/"><img id="imgId" src="assets/id_black.png" height="35" alt="Edit Belltimes ID"></a>
+</div>
+<div id="idError" class="alerts" style="position:static;display:none; margin-left:auto; margin-right:50px">
+    <div class="alert-message error">
+        <p id="bannerText" style="text-align:center;font-size:11px !important">
+            This Belltimes ID does not exist. Enter the URL again in the form of sbhsbelltimes.tk/<b>?id=123456789</b>
+        </p>
+    </div>
+</div>
+<div id="idNag" class="alerts" style="position:static;display:none; margin-left:auto; margin-right:50px">
+    <div class="alert-message warning">
+        <p id="bannerText" style="text-align:center;font-size:10.5px !important">
+            Introducing Belltimes ID. Tap the icon to personalise your timetable.
+        </p>
+    </div>
+</div>
 
 <div id="week" class="animated flipInX"><i><span style="color:#969696">Loading real-time data...</span></i></div>
 <div id="container" class="centered" >
@@ -140,7 +170,7 @@ Z             . .MN                 ...                        I    :: .   Z
 <div id="faq" style="cursor: pointer;" onclick="window.location='faq.html';"><a href="faq.html" style="color: #00aced"><img src="assets/i.png" id="icon">FAQ</a></div>
 <div id="bottom" class="align animated fadeInUpBig waitBig"><a href="https://docs.google.com/forms/d/1J-FFPzJkBjCOY4U73xIIe_UwwMqMevmX6T9FZKLmQA0/viewform" target="_blank" style="color: #00aced">Give Feedback</a></div>
 <div id="copyright" class="animated fadeInUpBig waitBig">&#169 Jerry Yip 2013</div>
-<br><br>
 
 </body>
+
 </html>
