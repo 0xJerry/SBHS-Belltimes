@@ -1,4 +1,4 @@
-//counter.js v3.2 release
+//counter.js v4.0b release
 var day;
 var todayHours;
 var todayMinutes;
@@ -13,6 +13,11 @@ var changedBells=[];
 var changedHours=[];
 var changedMinutes=[];
 
+var BelltimesIdExists = false;
+var idPeriods=[];
+var idRooms=[];
+var BelltimesIdChecked = false;
+
 var weekNum;
 var weekLetter;
 var fetchSuccess = false;
@@ -23,6 +28,39 @@ var date2Check;
 
 var i=0;
 var bellRang = false;
+
+function getBelltimesID(id, day){
+    $.ajax({
+        url:'./id/fetchID.php',
+        type:'post',
+        data:{'id':id,'day':day},
+        success:function(response){
+            if (response.exists==false){
+                //new id
+                console.log('Belltimes ID='+id+' NOT EXISTO, do nothing')
+                $('#idError').fadeIn(400).delay(6000).fadeOut(400);
+            }
+            else if (response.exists==true){
+                //existing id
+                console.log('Belltimes ID='+id+' EXISTO');
+                idPeriods = [response.p1, response.p2, response.p3, response.p4, response.p5, response.p6];
+                idRooms = [response.p1_r, response.p2_r, response.p3_r, response.p4_r, response.p5_r, response.p6_r];
+                console.log(idPeriods);
+                console.log(idRooms);
+
+                document.getElementById("imgId").src="assets/id_ok.png";
+                BelltimesIdExists=true;
+            }
+            else {
+                console.log('response exists=null wtfbbq lol');
+                $('#idError').fadeIn(400).delay(6000).fadeOut(400);
+            }
+        },
+        error:function(response){
+            alert("An error occurred while fetching your Belltimes ID. Send me a bug report!");
+        }
+    });
+}
 
 function getSBHS(url){
     $.ajax({
@@ -109,6 +147,16 @@ setInterval(function doCount(){
     }
     <!--END GRAB SBHS CHANGED TIMES FLAGS-->
 
+    <!--BEGIN FETCH USERS' CUSTOM BELLTIMES ID PERIODS, thanks to myself-->
+    if (BelltimesIdChecked==false && BelltimesID!=null && BelltimesID!=""){
+
+        if ((nextDay==false && day==6)||day==0){day=1} //fallback to monday on weekends
+        getBelltimesID(BelltimesID, day);
+
+        BelltimesIdChecked=true;
+    }
+    <!--END FETCH BELLTIMES ID-->
+
     //grab timetables
     if (assemblyDay==true){
         todayHours = changedHours.slice(0);
@@ -131,7 +179,8 @@ setInterval(function doCount(){
             case 5: //fri
                 todayHours = t3Hours.slice(0);
                 todayMinutes = t3Minutes.slice(0);
-                todayDesc = t3Desc.slice(0); break;
+                todayDesc = t3Desc.slice(0);
+                break;
             default:
                 todayHours = t1Hours.slice(0);
                 todayMinutes = t1Minutes.slice(0);
@@ -139,6 +188,31 @@ setInterval(function doCount(){
                 break;
         }
     }
+    if (BelltimesIdExists==true){
+        //custom periods
+        switch (day){
+            case 3: //t2 week
+            case 4:
+                todayDesc[1] = idPeriods[0]+" @ "+idRooms[0]; //p1
+                todayDesc[2] = todayDesc[1]+" Ends";
+                todayDesc[3] = idPeriods[1]+" @ "+idRooms[1]; //p2
+                todayDesc[5] = idPeriods[2]+" @ "+idRooms[2]; //p3
+                todayDesc[8] = idPeriods[3]+" @ "+idRooms[3]; //p4
+                todayDesc[9] = todayDesc[8]+" Ends";
+                todayDesc[10] = idPeriods[4]+" @ "+idRooms[4]; //p5
+                break;
+            default:
+                todayDesc[1] = idPeriods[0]+" @ "+idRooms[0]; //p1
+                todayDesc[2] = todayDesc[1]+" Ends";
+                todayDesc[3] = idPeriods[1]+" @ "+idRooms[1]; //p2
+                todayDesc[6] = idPeriods[2]+" @ "+idRooms[2]; //p3
+                todayDesc[7] = todayDesc[6]+" Ends";
+                todayDesc[8] = idPeriods[3]+" @ "+idRooms[3]; //p4
+                todayDesc[10] = idPeriods[4]+" @ "+idRooms[4]; //p5
+                break;
+        }
+    }
+
     i = 0;
 
     if (nextDay==true){
@@ -235,9 +309,10 @@ setInterval(function doCount(){
         rMinutes += 60;
     }
 
-    //time display
+    //time and week display
+    document.getElementById("description").innerHTML= todayDesc[i];
+
     if (assemblyDay==true){
-        document.getElementById("description").innerHTML= todayDesc[i];
         if (rHours!=0){
             document.getElementById("counter").innerHTML= "<b><a style='color: #ffbb33'>"+rHours+"</b><a style='color: #ffbb33'></a>h, <b><a style='color: #ffbb33'>"+ zeroPad(rMinutes) +"</a></b>m, <b><a style='color: #ffbb33'>"+zeroPad(rSeconds)+"</a></b>s.";
         }
@@ -249,7 +324,6 @@ setInterval(function doCount(){
 
     }
     else{
-        document.getElementById("description").innerHTML= todayDesc[i];
         if (rHours!=0){
             document.getElementById("counter").innerHTML= "<b>"+rHours+"</b>h, <b>"+ zeroPad(rMinutes) +"</b>m, <b>"+zeroPad(rSeconds)+"</b>s.";
         }
